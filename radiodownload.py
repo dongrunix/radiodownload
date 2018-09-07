@@ -8,9 +8,9 @@ def download(url):
     driver=webdriver.Chrome()
     driver.get(url)
     allherf=driver.find_elements_by_link_text('下载')
-    for i in range(len(allherf)):
-        print(allherf[i].get_attribute('onclick').split("\'")[1].split('/')[-1])
-        wget.download('http://'+allherf[i].get_attribute('onclick').split("\'")[1],allherf[i].get_attribute('onclick').split("\'")[1].split('/')[-1])     
+    for herf in allherf:
+        print(herf.get_attribute('onclick').split("\'")[1].split('/')[-1])
+        wget.download('http://'+herf.get_attribute('onclick').split("\'")[1],herf.get_attribute('onclick').split("\'")[1].split('/')[-1])     
     driver.close()
 if __name__=='__main__':
     url='http://www.radio.cn/pc-portal/sanji/zhibo_2.html?channelname=2&name=520799&title=radio'
